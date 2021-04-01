@@ -1,15 +1,11 @@
 
 import './App.css';
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Products from './components/Products'
 import Home from './components/HomePage'
 import ViewCart from './components/ViewCart'
+import IndividualProduct from './components/IndividualProductPage'
 
 function App() {
   return (
@@ -25,6 +21,9 @@ function App() {
             <Link to="/Products">Products</Link>
           </li>
           <li>
+            <Link to="/IndividualProductPage">Individual Product</Link>
+          </li>
+          <li>
             <Link to="/ViewCart">ViewCart</Link>
           </li>
           <li>
@@ -34,23 +33,24 @@ function App() {
 
         <hr />
         <Switch>
-          <Route exact path="./HomePage">
+          <Route path="./HomePage" component={Home}>
             <Home />
           </Route>
-          <Route exact path="./components/Products">
+          <Route  path="./components/Products" component={Products}>
             <Products />
           </Route>
-          <Route path="./components/ViewCart">
+          <Route path="./components/ViewCart" component={ViewCart}>
             <ViewCart />
+          </Route>
+          <Route path="./components/IndividualProductPage" component={IndividualProduct}>
+            <IndividualProduct />
           </Route>
         </Switch>
       </div>
     </Router>
 
       <header className="App-header">
-      
       <h1> Ecommerce Mock Up</h1>
-     
      
     </header>
 
